@@ -66,10 +66,10 @@ func login(u *User, toUser *User, args []string, service string) {
 
 		if len(args) == 4 {
 			u.Credentials = bridge.Credentials{
-				Team:  args[0],
-				Login: args[1],
-				Pass:  args[2],
-				MFAToken:  args[3],
+				Team:     args[0],
+				Login:    args[1],
+				Pass:     args[2],
+				MFAToken: args[3],
 			}
 		}
 
@@ -145,21 +145,21 @@ func login(u *User, toUser *User, args []string, service string) {
 		case cred.Team != "" && cred.Server != "":
 			u.MsgUser(toUser, "need LOGIN <login> <pass>")
 			u.MsgUser(toUser, "when using a personal token replace <pass> with token=<yourtoken>")
-            u.MsgUser(toUser, "when using a mfa token use LOGIN <login> <pass> MFAToken=<yourmfatoken>")
+			u.MsgUser(toUser, "when using a mfa token use LOGIN <login> <pass> MFAToken=<yourmfatoken>")
 		// server missing
 		case cred.Team != "":
 			u.MsgUser(toUser, "need LOGIN <server> <login> <pass>")
 			u.MsgUser(toUser, "when using a personal token replace <pass> with token=<yourtoken>")
-            u.MsgUser(toUser, "when using a mfa token use LOGIN <server> <login> <pass> MFAToken=<yourmfatoken>")
+			u.MsgUser(toUser, "when using a mfa token use LOGIN <server> <login> <pass> MFAToken=<yourmfatoken>")
 		// team missing
 		case cred.Server != "":
 			u.MsgUser(toUser, "need LOGIN <team> <login> <pass>")
 			u.MsgUser(toUser, "when using a personal token replace <pass> with token=<yourtoken>")
-            u.MsgUser(toUser, "when using a mfa token use LOGIN <team> <login> <pass> MFAToken=<yourmfatoken>")
+			u.MsgUser(toUser, "when using a mfa token use LOGIN <team> <login> <pass> MFAToken=<yourmfatoken>")
 		default:
 			u.MsgUser(toUser, "need LOGIN <server> <team> <login> <pass>")
 			u.MsgUser(toUser, "when using a personal token replace <pass> with token=<yourtoken>")
-            u.MsgUser(toUser, "when using a mfa token use LOGIN <server> <team> <login> <pass> MFAToken=<yourmfatoken>")
+			u.MsgUser(toUser, "when using a mfa token use LOGIN <server> <team> <login> <pass> MFAToken=<yourmfatoken>")
 		}
 
 		return
